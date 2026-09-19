@@ -7143,3 +7143,151 @@ body.light-mode .footer-top{
         transition: none !important;
     }
 }
+
+
+/* ========================= */
+/* "I'M AHMAD" — BIG CENTER  */
+/* ========================= */
+
+.im-title-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 60px;
+    margin-top: 40px;
+    
+}
+
+.im-title{
+    display: inline-flex;
+    justify-content: center;
+    align-items: baseline;
+    /* BADA SIZE */
+    font-size: clamp(60px, 10vw, 180px);
+
+    line-height: 1;
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+    color: #ffffff;
+
+    font-family: monospace;
+
+    margin: 0;
+
+    /* Text shadow for depth */
+    text-shadow:
+        0 4px 20px rgba(0,0,0,.25);
+}
+
+/* Each letter */
+.im-title .letter{
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: translateY(60px) scale(.85);
+
+    animation: letterDrop 1s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+/* Orange apostrophe */
+.im-title .letter.orange{
+    color: #fd7b03;
+
+    font-weight: 900;
+
+    /* Glow effect */
+    text-shadow:
+        0 0 20px rgba(253,123,3,.6),
+        0 0 40px rgba(253,123,3,.3);
+}
+
+/* Space between words */
+.im-title .letter.space{
+    width: clamp(20px, 3vw, 40px);
+}
+
+/* ========================= */
+/* ANIMATION                 */
+/* ========================= */
+
+@keyframes letterDrop{
+    0%{
+        opacity: 0;
+        transform: translateY(60px) scale(.85);
+    }
+    60%{
+        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Staggered delays — each letter */
+.im-title .letter:nth-child(1){ animation-delay: 0.15s; }
+.im-title .letter:nth-child(2){ animation-delay: 0.25s; }
+.im-title .letter:nth-child(3){ animation-delay: 0.35s; }
+.im-title .letter:nth-child(4){ animation-delay: 0.45s; }
+.im-title .letter:nth-child(5){ animation-delay: 0.55s; }
+.im-title .letter:nth-child(6){ animation-delay: 0.65s; }
+.im-title .letter:nth-child(7){ animation-delay: 0.75s; }
+.im-title .letter:nth-child(8){ animation-delay: 0.85s; }
+.im-title .letter:nth-child(9){ animation-delay: 0.95s; }
+
+/* ========================= */
+/* LIGHT MODE                */
+/* ========================= */
+
+body.light-mode .im-title{
+    color: #111;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,.08);
+}
+
+body.light-mode .im-title .letter.orange{
+    color: #fd7b03;
+
+    text-shadow:
+        0 0 20px rgba(253,123,3,.4);
+}
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media (max-width: 992px){
+
+    .im-title{
+        letter-spacing: -2px;
+    }
+}
+
+@media (max-width: 576px){
+
+    .im-title{
+        letter-spacing: -1.5px;
+    }
+
+    .im-title-wrap{
+        margin-bottom: 20px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+
+    .im-title .letter{
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
